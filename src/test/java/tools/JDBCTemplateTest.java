@@ -1,5 +1,7 @@
 package tools;
 
+import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -96,5 +98,11 @@ class JDBCTemplateTest
             }
             System.out.println();
         }
+    }
+
+    @Test
+    void queryForListMap()
+    {
+
     }
 }
