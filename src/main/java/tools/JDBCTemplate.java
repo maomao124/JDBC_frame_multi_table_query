@@ -2,8 +2,6 @@ package tools;
 
 import tools.Handler.ResultSetHandler;
 
-import java.beans.PropertyDescriptor;
-import java.lang.reflect.Method;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -596,7 +594,7 @@ public class JDBCTemplate
 
     /**
      * 查询方法，此方法用于将一条或者多条记录封装成一个list集合并返回，适用于多表查询
-     * 此方法不推荐使用，因为在map集合中，key是列名，重复。
+     * 此方法不推荐使用，因为在map集合中，key是列名，重复。但是集合重写了toString方法，可以直接输出字符串。
      *
      * @param sql  预编译的sql查询语句，经常使用多表查询，sql语句实例：查询某号学生选修的课程名称和对应课程的分数：
      *             SELECT course.`name`, grade.grade

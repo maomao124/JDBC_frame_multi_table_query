@@ -2,6 +2,9 @@ package tools;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.HashMap;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -67,6 +70,7 @@ class JDBCTemplateTest
             System.out.println();
         }
     }
+
     @org.junit.jupiter.api.Test
     void queryForArray1()
     {
@@ -83,6 +87,7 @@ class JDBCTemplateTest
             System.out.println();
         }
     }
+
     @org.junit.jupiter.api.Test
     void queryForArray2()
     {
@@ -103,6 +108,15 @@ class JDBCTemplateTest
     @Test
     void queryForListMap()
     {
-
+        String sql = "SELECT course.`name`, grade.grade " +
+                "FROM grade, course WHERE grade.cno = course.cno and grade.`no`=2";
+        Object[] objects = {};
+        List<HashMap<String, Object>> list = JDBCTemplate.queryForListMap(sql, objects);
+        //System.out.println(list);
+        for (HashMap<String, Object> map : list)
+        {
+            System.out.print(map.get("name") + "   " + map.get("grade"));
+            System.out.println();
+        }
     }
 }
